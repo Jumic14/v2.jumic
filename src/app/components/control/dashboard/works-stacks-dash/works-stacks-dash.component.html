@@ -1,0 +1,66 @@
+<div class="workstack-container">
+  <h3>Works Stacks</h3>
+  <div class="workstack-box">
+    <div class="workstack-list">
+      <div class="list-container">
+        <div
+          [class.selected]="workStack === selectedWorkStack"
+          *ngFor="let workStack of worksStacks"
+        >
+          <p (click)="selectWorkStack(workStack)">
+            Work / Stack:
+            <span>{{ workStack.work_id }} / {{ workStack.stack_id }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Work</button>
+        <button
+          (click)="deleteSelectedWorkStack(selectedWorkStack)"
+          *ngIf="selectedWorkStack"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="workstack-info" *ngIf="selectedWorkStack">
+      <p>
+        Work ID: <span>{{ selectedWorkStack.work_id }}</span>
+      </p>
+      <p>
+        Stack ID: <span>{{ selectedWorkStack.stack_id }}</span>
+      </p>
+    </div>
+    <div class="workstack-post hidden">
+      <h4>Create new WorkStack</h4>
+      <form (submit)="submitWorkStack()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>Work ID:</p>
+            <input
+              type="number"
+              placeholder="Work Id"
+              [(ngModel)]="newWorkStack.work_id"
+              name="work_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Stack ID:</p>
+            <input
+              type="number"
+              placeholder="Stack Id"
+              [(ngModel)]="newWorkStack.stack_id"
+              name="stack_id"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div class="section-title section-right">
+  <h2>
+    {{
+      languageService.selectedLanguage === "fr"
+        ? "Domaine de compétences"
+        : "Expertise area"
+    }}
+  </h2>
+</div>
+<div class="skills">
+  <div class="skills-content">
+    <div class="mean-system">
+      <app-mean-system></app-mean-system>
+    </div>
+    <div class="skills-list">
+      <div class="mean box">
+        <h4>
+          <strong>MEAN</strong> Stack
+          {{
+            languageService.selectedLanguage === "fr"
+              ? "développement"
+              : "development"
+          }}
+        </h4>
+        <div class="mean-stack">
+          <div class="mean-techno">
+            <img [src]="getMongoLogo()" alt="mongo-logo" />
+            <p><strong>M</strong>ongoDB</p>
+          </div>
+          <div class="mean-techno">
+            <img [src]="getExpressLogo()" alt="express-logo" />
+            <p><strong>E</strong>xpress.Js</p>
+          </div>
+          <div class="mean-techno">
+            <img [src]="getAngularLogo()" alt="angular-logo" />
+            <p><strong>A</strong>ngular</p>
+          </div>
+          <div class="mean-techno">
+            <img [src]="getNodeLogo()" alt="node-logo" />
+            <p><strong>N</strong>ode.Js</p>
+          </div>
+        </div>
+        <p
+          [innerHTML]="
+            languageService.selectedLanguage === 'fr'
+              ? 'Ensemble de technologies permettant de créer des <strong>applications web dynamiques</strong> et <strong>évolutives</strong>, depuis la <strong>gestion des données côté serveur</strong> jusqu\'à l\'<strong>interface utilisateur côté client</strong>.'
+              : 'Set of technologies used to create <strong>dynamic</strong> and <strong>scalable web applications</strong>, from <strong>server-side data management</strong> to <strong>client-side user interface</strong>.'
+          "
+        ></p>
+      </div>
+      <div class="web-dev box">
+        <h4>
+          <strong>Web</strong>
+          {{
+            languageService.selectedLanguage === "fr"
+              ? "développement"
+              : "development"
+          }}
+        </h4>
+        <p
+          [innerHTML]="
+            languageService.selectedLanguage === 'fr'
+              ? 'Développement complet de <strong>sites</strong> et <strong>applications web</strong>.'
+              : 'Complete development of <strong>web sites</strong> and <strong>applications</strong>.'
+          "
+        ></p>
+      </div>
+      <div class="web-design box">
+        <h4><strong>Web</strong> design</h4>
+        <p
+          [innerHTML]="
+            languageService.selectedLanguage === 'fr'
+              ? 'Conception et création de sites et applications web basés sur l\'<strong>expérience utilisateur</strong>.'
+              : 'Design and creation of web applications based on <strong>user experience</strong>.'
+          "
+        ></p>
+      </div>
+      <div class="responsive box">
+        <h4><strong>Responsive</strong> design</h4>
+        <p
+          [innerHTML]="
+            languageService.selectedLanguage === 'fr'
+              ? 'Optimisation du <strong>graphisme</strong> et de la <strong>mise en page</strong> de sites et applications web à différentes interfaces et appareils tels que les mobiles et les tablettes.'
+              : '<strong>Graphic design</strong> and <strong>layout optimization</strong> of web sites and applications for various interfaces and devices such as mobile phones and tablets.'
+          "
+        ></p>
+      </div>
+    </div>
+  </div>
+  <div class="stacks">
+    <p class="stack-intro">
+      {{
+        languageService.selectedLanguage === "fr"
+          ? "Liste des technologies avec lesquelles j'ai travaillé :"
+          : "List of the technologies I have worked with:"
+      }}
+    </p>
+    <div *ngIf="stacks && categories" class="stack-content">
+      <div *ngFor="let category of categories" class="stack-section">
+        <ng-container *ngIf="category.category_id !== 4">
+          <h3 class="category-name">
+            {{
+              languageService.selectedLanguage === "fr"
+                ? category.category_name
+                : category.category_name_en
+            }}
+          </h3>
+          <div class="stack-list">
+            <div *ngFor="let stack of stacks">
+              <div
+                *ngIf="stack.category_id === category.category_id"
+                class="stack"
+              >
+                <p>{{ stack.stack_name }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

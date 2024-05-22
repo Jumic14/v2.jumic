@@ -1,0 +1,327 @@
+<div class="work-container">
+  <h3>Works</h3>
+  <div class="work-box">
+    <div class="work-list">
+      <div class="list-container">
+        <div
+          [class.selected]="work === selectedWork"
+          *ngFor="let work of works"
+        >
+          <p (click)="selectWork(work)">
+            Name: <span>{{ work.work_name }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Work</button>
+        <button (click)="openUpdateForm()" *ngIf="selectedWork">Update</button>
+        <button (click)="deleteSelectedWork(selectedWork)" *ngIf="selectedWork">
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="work-info" *ngIf="selectedWork">
+      <p>
+        Work ID: <span>{{ selectedWork.work_id }}</span>
+      </p>
+      <p>
+        Name: <span>{{ selectedWork.work_name }}</span>
+      </p>
+      <p>
+        Category ID: <span>{{ selectedWork.work_category }}</span>
+      </p>
+      <p>
+        Cover: <span>{{ selectedWork.work_cover }}</span>
+      </p>
+      <p>
+        Year: <span>{{ selectedWork.work_year }}</span>
+      </p>
+      <p>
+        Repository: <span>{{ selectedWork.work_repo }}</span>
+      </p>
+      <p>
+        Link: <span>{{ selectedWork.work_link }}</span>
+      </p>
+      <p>
+        Context: <span>{{ selectedWork.work_context }}</span>
+      </p>
+      <p>
+        Introduction: <span>{{ selectedWork.work_intro }}</span>
+      </p>
+      <p>
+        Description: <span>{{ selectedWork.work_desc }}</span>
+      </p>
+      <p>
+        Context (English): <span>{{ selectedWork.work_context_en }}</span>
+      </p>
+      <p>
+        Introduction (English): <span>{{ selectedWork.work_intro_en }}</span>
+      </p>
+      <p>
+        Description (English): <span>{{ selectedWork.work_desc_en }}</span>
+      </p>
+    </div>
+    <div class="work-post hidden">
+      <h4>Create new Work</h4>
+      <form (submit)="submitWork()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Work Id"
+              [(ngModel)]="newWork.work_id"
+              name="work_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Work Name"
+              [(ngModel)]="newWork.work_name"
+              name="work_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Category:</p>
+            <input
+              type="text"
+              placeholder="Work Category"
+              [(ngModel)]="newWork.work_category"
+              name="work_category"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Cover:</p>
+            <input
+              type="text"
+              placeholder="Work Cover"
+              [(ngModel)]="newWork.work_cover"
+              name="work_cover"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Year:</p>
+            <input
+              type="number"
+              placeholder="Work Year"
+              [(ngModel)]="newWork.work_year"
+              name="work_year"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Repository:</p>
+            <input
+              type="text"
+              placeholder="Work Repository"
+              [(ngModel)]="newWork.work_repo"
+              name="work_repo"
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Work Url"
+              [(ngModel)]="newWork.work_url"
+              name="work_url"
+            />
+          </div>
+          <div class="form-entry">
+            <p>Context:</p>
+            <textarea
+              placeholder="Work Context"
+              [(ngModel)]="newWork.work_context"
+              name="work_context"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Intro:</p>
+            <textarea
+              placeholder="Work Introduction"
+              [(ngModel)]="newWork.work_intro"
+              name="work_intro"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Description:</p>
+            <textarea
+              placeholder="Work Description"
+              [(ngModel)]="newWork.work_desc"
+              name="work_desc"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Context EN:</p>
+            <textarea
+              placeholder="Work Context (English)"
+              [(ngModel)]="newWork.work_context_en"
+              name="work_context_en"
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Info EN:</p>
+            <textarea
+              placeholder="Work Introduction (English)"
+              [(ngModel)]="newWork.work_intro_en"
+              name="work_intro_en"
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Description EN:</p>
+            <textarea
+              placeholder="Work Description (English)"
+              [(ngModel)]="newWork.work_desc_en"
+              name="work_desc_en"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="work-update hidden" *ngIf="selectedWork">
+      <h4>
+        Update id {{ selectedWork.work_id }} - {{ selectedWork.work_name }}
+      </h4>
+      <form (submit)="updateWork()">
+        <div class="form-update">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Work Id"
+              [(ngModel)]="selectedWork.work_id"
+              name="work_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Work Name"
+              [(ngModel)]="selectedWork.work_name"
+              name="work_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Category:</p>
+            <input
+              type="text"
+              placeholder="Work Category"
+              [(ngModel)]="selectedWork.work_category"
+              name="work_category"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Cover:</p>
+            <input
+              type="text"
+              placeholder="Work Cover"
+              [(ngModel)]="selectedWork.work_cover"
+              name="work_cover"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Year:</p>
+            <input
+              type="number"
+              placeholder="Work Year"
+              [(ngModel)]="selectedWork.work_year"
+              name="work_year"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Repository:</p>
+            <input
+              type="text"
+              placeholder="Work Repository"
+              [(ngModel)]="selectedWork.work_repo"
+              name="work_repo"
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Work Url"
+              [(ngModel)]="selectedWork.work_url"
+              name="work_url"
+            />
+          </div>
+          <div class="form-entry">
+            <p>Context:</p>
+            <textarea
+              placeholder="Work Context"
+              [(ngModel)]="selectedWork.work_context"
+              name="work_context"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Intro:</p>
+            <textarea
+              placeholder="Work Introduction"
+              [(ngModel)]="selectedWork.work_intro"
+              name="work_intro"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Description:</p>
+            <textarea
+              placeholder="Work Description"
+              [(ngModel)]="selectedWork.work_desc"
+              name="work_desc"
+              required
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Context EN:</p>
+            <textarea
+              placeholder="Work Context (English)"
+              [(ngModel)]="selectedWork.work_context_en"
+              name="work_context_en"
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Info EN:</p>
+            <textarea
+              placeholder="Work Introduction (English)"
+              [(ngModel)]="selectedWork.work_intro_en"
+              name="work_intro_en"
+            ></textarea>
+          </div>
+          <div class="form-entry">
+            <p>Description EN:</p>
+            <textarea
+              placeholder="Work Description (English)"
+              [(ngModel)]="selectedWork.work_desc_en"
+              name="work_desc_en"
+            ></textarea>
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Update</button>
+          <button type="button" (click)="closeUpdateForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

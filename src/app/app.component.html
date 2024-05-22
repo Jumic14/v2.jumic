@@ -1,0 +1,14 @@
+<div [ngClass]="{ 'dark-mode': isDarkMode() }" id="full-content">
+  <header
+    *ngIf="!isLoginPage && !isDashboardPage"
+    class="sticky"
+    [ngClass]="{ 'dark-mode-header': isDarkMode() }"
+    [@animateHeader]
+  >
+    <app-header></app-header>
+  </header>
+  <router-outlet></router-outlet>
+  <footer *ngIf="!isLoginPage && !isDashboardPage">
+    <app-footer></app-footer>
+  </footer>
+</div>

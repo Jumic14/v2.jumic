@@ -1,0 +1,42 @@
+<div class="contact-container">
+  <h3>Contact</h3>
+  <div class="contact-box">
+    <div class="contact-list">
+      <div class="list-container">
+        <div
+          [class.selected]="message === selectedMessage"
+          *ngFor="let message of contactMessages"
+        >
+          <p (click)="selectMessage(message)">
+            Name: <span>{{ message.nom }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button
+          (click)="deleteSelectedMessage(selectedMessage)"
+          *ngIf="selectedMessage"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="contact-info" *ngIf="selectedMessage">
+      <p>
+        Nom: <span>{{ selectedMessage.nom }}</span>
+      </p>
+      <p>
+        Email: <span>{{ selectedMessage.email }}</span>
+      </p>
+      <p>
+        Sujet: <span>{{ selectedMessage.sujet }}</span>
+      </p>
+      <p>
+        Message: <span>{{ selectedMessage.message }}</span>
+      </p>
+      <p>
+        Date: <span>{{ selectedMessage.date_creation }}</span>
+      </p>
+    </div>
+  </div>
+</div>

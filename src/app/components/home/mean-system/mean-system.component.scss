@@ -1,0 +1,532 @@
+.mean-system {
+  position: relative;
+  width: 546px;
+  height: 546px;
+  margin: auto;
+  overflow: hidden;
+}
+#mean,
+.orbit,
+.orbit + div,
+.orbit + div > div {
+  position: absolute;
+}
+#mean,
+.orbit,
+.orbit + div {
+  top: 50%;
+  left: 50%;
+}
+.orbit + div > div {
+  top: 0;
+  left: 50%;
+}
+.orbit,
+.orbit + div div,
+#angular {
+  border-radius: 50%;
+}
+#mean {
+  height: 140px;
+  width: 140px;
+  background-size: cover;
+  background-position: center;
+  margin-top: -70px;
+  margin-left: -70px;
+  border-radius: 50%;
+}
+
+#angular {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 35px;
+  width: 35px;
+  margin-left: -17.5px;
+  margin-top: -17.5px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.angular-orbit,
+.angular-spin {
+  width: 385px;
+  height: 385px;
+  margin-left: -192.5px;
+  margin-top: -192.5px;
+}
+#sass {
+  margin-top: -7.7px;
+  margin-left: -7.7px;
+  height: 15.4px;
+  width: 15.4px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.sass-orbit,
+.sass-spin {
+  height: 77px;
+  width: 77px;
+  margin-top: -38.5px;
+  margin-left: -38.5px;
+}
+#typescript {
+  margin-top: -7.7px;
+  margin-left: -7.7px;
+  height: 15.4px;
+  width: 15.4px;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.typescript-orbit,
+.typescript-spin {
+  height: 56px;
+  width: 56px;
+  margin-top: -28px;
+  margin-left: -28px;
+}
+#express {
+  margin-top: -14px;
+  margin-left: -14px;
+  height: 28px;
+  width: 28px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.express-orbit,
+.express-spin {
+  margin-top: -129.5px;
+  margin-left: -129.5px;
+  width: 259px;
+  height: 259px;
+}
+#mongo {
+  margin-top: -9.45px;
+  margin-left: -9.45px;
+  height: 22.4px;
+  width: 22.4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mongo-orbit,
+.mongo-spin {
+  width: 196px;
+  height: 196px;
+  margin-left: -98px;
+  margin-top: -98px;
+}
+#node {
+  margin-top: -11.2px;
+  margin-left: -11.2px;
+  height: 22.4px;
+  width: 22.4px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.node-orbit,
+.node-spin {
+  width: 490px;
+  height: 490px;
+  margin-left: -245px;
+  margin-top: -245px;
+}
+
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.angular-spin {
+  animation: spin-right 36.5s linear infinite;
+}
+.typescript-spin {
+  animation: spin-right 3s linear infinite;
+}
+.sass-spin {
+  animation: spin-right 5s linear infinite;
+}
+.express-spin {
+  animation: spin-right 22s linear infinite;
+}
+.mongo-spin {
+  animation: spin-right 8.8s linear infinite;
+}
+.node-spin {
+  animation: spin-right 68.7s linear infinite;
+}
+
+@media only screen and (min-width: 2501px) {
+  .mean-system {
+    width: 1014px;
+    height: 1014px;
+  }
+  #mean {
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+  }
+
+  #angular {
+    height: 65px;
+    width: 65px;
+    margin-left: -32.5px;
+    margin-top: -32.5px;
+  }
+  .angular-orbit,
+  .angular-spin {
+    width: 715px;
+    height: 715px;
+    margin-left: -357.5px;
+    margin-top: -357.5px;
+  }
+  #sass {
+    margin-top: -14.3px;
+    margin-left: -14.3px;
+    height: 28.6px;
+    width: 28.6px;
+  }
+  .sass-orbit,
+  .sass-spin {
+    height: 143px;
+    width: 143px;
+    margin-top: -71.5px;
+    margin-left: -71.5px;
+  }
+  #typescript {
+    margin-top: -14.3px;
+    margin-left: -14.3px;
+    height: 28.6px;
+    width: 28.6px;
+  }
+  .typescript-orbit,
+  .typescript-spin {
+    height: 104px;
+    width: 104px;
+    margin-top: -52px;
+    margin-left: -52px;
+  }
+  #express {
+    margin-top: -26px;
+    margin-left: -26px;
+    height: 52px;
+    width: 52px;
+  }
+  .express-orbit,
+  .express-spin {
+    margin-top: -240.5px;
+    margin-left: -240.5px;
+    width: 481px;
+    height: 481px;
+  }
+  #mongo {
+    margin-top: -17.55px;
+    margin-left: -17.55px;
+    height: 41.6px;
+    width: 41.6px;
+  }
+  .mongo-orbit,
+  .mongo-spin {
+    width: 364px;
+    height: 364px;
+    margin-left: -182px;
+    margin-top: -182px;
+  }
+  #node {
+    margin-top: -20.8px;
+    margin-left: -20.8px;
+    height: 41.6px;
+    width: 41.6px;
+  }
+  .node-orbit,
+  .node-spin {
+    width: 910px;
+    height: 910px;
+    margin-left: -455px;
+    margin-top: -455px;
+  }
+}
+
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .mean-system {
+    width: 780px;
+    height: 780px;
+  }
+  #mean {
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+  }
+
+  #angular {
+    height: 50px;
+    width: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+  }
+  .angular-orbit,
+  .angular-spin {
+    width: 550px;
+    height: 550px;
+    margin-left: -275px;
+    margin-top: -275px;
+  }
+  #sass {
+    margin-top: -11px;
+    margin-left: -11px;
+    height: 22px;
+    width: 22px;
+  }
+  .sass-orbit,
+  .sass-spin {
+    height: 110px;
+    width: 110px;
+    margin-top: -55px;
+    margin-left: -55px;
+  }
+  #typescript {
+    margin-top: -11px;
+    margin-left: -11px;
+    height: 22px;
+    width: 22px;
+  }
+  .typescript-orbit,
+  .typescript-spin {
+    height: 80px;
+    width: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+  }
+  #express {
+    margin-top: -20px;
+    margin-left: -20px;
+    height: 40px;
+    width: 40px;
+  }
+  .express-orbit,
+  .express-spin {
+    margin-top: -185px;
+    margin-left: -185px;
+    width: 370px;
+    height: 370px;
+  }
+  #mongo {
+    margin-top: -13.5px;
+    margin-left: -13.5px;
+    height: 32px;
+    width: 32px;
+  }
+  .mongo-orbit,
+  .mongo-spin {
+    width: 280px;
+    height: 280px;
+    margin-left: -140px;
+    margin-top: -140px;
+  }
+  #node {
+    margin-top: -16px;
+    margin-left: -16px;
+    height: 32px;
+    width: 32px;
+  }
+  .node-orbit,
+  .node-spin {
+    width: 700px;
+    height: 700px;
+    margin-left: -350px;
+    margin-top: -350px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .mean-system {
+    width: 351px;
+    height: 351px;
+  }
+  #mean {
+    height: 90px;
+    width: 90px;
+    margin-top: -45px;
+    margin-left: -45px;
+  }
+
+  #angular {
+    height: 22.5px;
+    width: 22.5px;
+    margin-left: -11.25px;
+    margin-top: -11.25px;
+  }
+  .angular-orbit,
+  .angular-spin {
+    width: 247.5px;
+    height: 247.5px;
+    margin-left: -123.75px;
+    margin-top: -123.75px;
+  }
+  #sass {
+    margin-top: -4.95px;
+    margin-left: -4.95px;
+    height: 9.9px;
+    width: 9.9px;
+  }
+  .sass-orbit,
+  .sass-spin {
+    height: 49.5px;
+    width: 49.5px;
+    margin-top: -24.75px;
+    margin-left: -24.75px;
+  }
+  #typescript {
+    margin-top: -4.95px;
+    margin-left: -4.95px;
+    height: 9.9px;
+    width: 9.9px;
+  }
+  .typescript-orbit,
+  .typescript-spin {
+    height: 36px;
+    width: 36px;
+    margin-top: -18px;
+    margin-left: -18px;
+  }
+  #express {
+    margin-top: -9px;
+    margin-left: -9px;
+    height: 18px;
+    width: 18px;
+  }
+  .express-orbit,
+  .express-spin {
+    margin-top: -83.25px;
+    margin-left: -83.25px;
+    width: 166.5px;
+    height: 166.5px;
+  }
+  #mongo {
+    margin-top: -6.075px;
+    margin-left: -6.075px;
+    height: 14.4px;
+    width: 14.4px;
+  }
+  .mongo-orbit,
+  .mongo-spin {
+    width: 126px;
+    height: 126px;
+    margin-left: -63px;
+    margin-top: -63px;
+  }
+  #node {
+    margin-top: -7.2px;
+    margin-left: -7.2px;
+    height: 14.4px;
+    width: 14.4px;
+  }
+  .node-orbit,
+  .node-spin {
+    width: 315px;
+    height: 315px;
+    margin-left: -157.5px;
+    margin-top: -157.5px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .mean-system {
+    width: 273px;
+    height: 273px;
+  }
+  #mean {
+    height: 70px;
+    width: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+  }
+
+  #angular {
+    height: 17.5px;
+    width: 17.5px;
+    margin-left: -8.75px;
+    margin-top: -8.75px;
+  }
+  .angular-orbit,
+  .angular-spin {
+    width: 192.5px;
+    height: 192.5px;
+    margin-left: -96.25px;
+    margin-top: -96.25px;
+  }
+  #sass {
+    margin-top: -3.85px;
+    margin-left: -3.85px;
+    height: 7.7px;
+    width: 7.7px;
+  }
+  .sass-orbit,
+  .sass-spin {
+    height: 38.5px;
+    width: 38.5px;
+    margin-top: -19.25px;
+    margin-left: -19.25px;
+  }
+  #typescript {
+    margin-top: -3.85px;
+    margin-left: -3.85px;
+    height: 7.7px;
+    width: 7.7px;
+  }
+  .typescript-orbit,
+  .typescript-spin {
+    height: 28px;
+    width: 28px;
+    margin-top: -14px;
+    margin-left: -14px;
+  }
+  #express {
+    margin-top: -7px;
+    margin-left: -7px;
+    height: 14px;
+    width: 14px;
+  }
+  .express-orbit,
+  .express-spin {
+    margin-top: -64.75px;
+    margin-left: -64.75px;
+    width: 129.5px;
+    height: 129.5px;
+  }
+  #mongo {
+    margin-top: -4.725px;
+    margin-left: -4.725px;
+    height: 11.2px;
+    width: 11.2px;
+  }
+  .mongo-orbit,
+  .mongo-spin {
+    width: 98px;
+    height: 98px;
+    margin-left: -49px;
+    margin-top: -49px;
+  }
+  #node {
+    margin-top: -5.6px;
+    margin-left: -5.6px;
+    height: 11.2px;
+    width: 11.2px;
+  }
+  .node-orbit,
+  .node-spin {
+    width: 245px;
+    height: 245px;
+    margin-left: -122.5px;
+    margin-top: -122.5px;
+  }
+}

@@ -1,0 +1,175 @@
+.banner {
+  height: 80vh;
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5%;
+  p,
+  h1,
+  h2 {
+    margin: 0;
+  }
+  .banner-greetings {
+    font-family: var(--codeFont);
+    font-size: 14px;
+    padding: 2em 0 0 1em;
+  }
+  .banner-title {
+    display: flex;
+    flex-direction: column;
+  }
+  .banner-intro {
+    width: 50%;
+    padding: 3em 1em;
+    margin: 0;
+  }
+  .banner-skills {
+    font-family: var(--codeFont);
+    padding: 2em 1em;
+  }
+}
+
+// Responsive
+@media only screen and (min-width: 2501px) {
+  .banner {
+    .banner-greetings {
+      font-size: 22px;
+    }
+    text {
+      font-size: 100px;
+    }
+    .main-title {
+      h1 {
+        font-size: 68px;
+      }
+    }
+  }
+  .banner-intro {
+    font-size: 26px;
+  }
+  .banner-skills {
+    font-size: 26px;
+  }
+}
+@media only screen and (min-width: 1921px) and (max-width: 2500px) {
+  .banner {
+    .banner-greetings {
+      font-size: 18px;
+    }
+    text {
+      font-size: 88px;
+    }
+    .main-title {
+      h1 {
+        font-size: 60px;
+      }
+    }
+  }
+  .banner-intro {
+    font-size: 22px;
+  }
+  .banner-skills {
+    font-size: 22px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .banner {
+    .banner-skills {
+      padding: 1em 1em;
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .banner {
+    .banner-greetings {
+      font-size: 12px;
+    }
+    text {
+      font-size: 60px;
+    }
+    .main-title {
+      h1 {
+        font-size: 40px;
+      }
+    }
+    .banner-intro {
+      font-size: 14px;
+    }
+    .banner-skills {
+      font-size: 14px;
+    }
+  }
+}
+@media only screen and (max-width: 650px) {
+  .banner {
+    .banner-greetings {
+      font-size: 10px;
+      padding: 3em 0 0 1em;
+    }
+    text {
+      font-size: 48px;
+    }
+    .main-title {
+      h1 {
+        font-size: 30px;
+      }
+    }
+    .banner-intro {
+      font-size: 12px;
+    }
+    .banner-skills {
+      font-size: 12px;
+    }
+  }
+}
+@media only screen and (max-width: 540px) {
+  .banner {
+    text {
+      font-size: 40px;
+    }
+    .main-title {
+      h1 {
+        font-size: 22px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  .banner {
+    .banner-greetings {
+      font-size: 8px;
+      padding: 4em 0 0 1em;
+    }
+    text {
+      font-size: 30px;
+    }
+    .main-title {
+      h1 {
+        font-size: 16px;
+      }
+    }
+    .banner-intro {
+      font-size: 10px;
+      width: 60%;
+    }
+    .banner-skills {
+      font-size: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 320px) {
+  .banner {
+    text {
+      font-size: 24px;
+    }
+    .main-title {
+      h1 {
+        font-size: 14px;
+      }
+    }
+    .banner-intro {
+      width: 70%;
+    }
+  }
+}

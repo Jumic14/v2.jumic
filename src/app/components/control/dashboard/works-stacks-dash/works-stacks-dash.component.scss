@@ -1,0 +1,108 @@
+.workstack-container {
+  h3 {
+    padding-left: 4em;
+    margin: 0.7em;
+    text-decoration: underline;
+  }
+  .workstack-box {
+    display: flex;
+    height: 500px;
+    width: -webkit-fill-available;
+    .hidden {
+      display: none;
+    }
+    .workstack-list {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      .list-container {
+        width: 100%;
+        border-right: 1px solid var(--third-color);
+        height: 400px;
+        overflow: scroll;
+        p:hover {
+          cursor: pointer;
+        }
+      }
+      .list-button {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
+    .workstack-info {
+      width: 75%;
+      height: 100%;
+    }
+    .workstack-list,
+    .workstack-info {
+      padding: 0 2em;
+      p {
+        font-family: var(--codeFont);
+        color: var(--third-color);
+        font-size: 12px;
+        font-weight: bold;
+      }
+      span {
+        color: var(--second-color);
+      }
+    }
+    .workstack-post {
+      width: -webkit-fill-available;
+      h4 {
+        text-align: center;
+      }
+    }
+    .form-post {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 2em;
+      .form-entry {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        p,
+        input,
+        textarea {
+          font-family: var(--codeFont);
+          color: var(--third-color);
+          font-size: 12px;
+        }
+        p {
+          color: var(--third-color);
+          width: 15%;
+        }
+        input,
+        textarea {
+          color: var(--second-color);
+          background-color: transparent;
+          width: 85%;
+        }
+      }
+    }
+    .form-button {
+      display: flex;
+      justify-content: center;
+      button {
+        margin: 1em;
+      }
+    }
+  }
+  button {
+    width: fit-content;
+    font-family: var(--codeFont);
+    align-self: center;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid var(--third-color);
+    color: var(--third-color);
+    padding: 0.5em 1em;
+    margin: 0.5em;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: var(--third-color);
+    color: var(--second-color);
+  }
+}

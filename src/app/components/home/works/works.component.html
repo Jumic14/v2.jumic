@@ -1,0 +1,180 @@
+<div class="section-title section-left">
+  <h2>
+    {{ languageService.selectedLanguage === "fr" ? "Réalisations" : "Works" }}
+  </h2>
+</div>
+<div class="works-carousel">
+  <div class="slides">
+    <ng-container *ngFor="let work of works; let i = index">
+      <div *ngIf="i === currentWork" class="slide-box">
+        <div class="slide-content">
+          <div class="left-box" [@zoomIn]>
+            <div class="slide-cover">
+              <img
+                src="{{ work.work_cover }}"
+                alt="{{ work.work_name }} cover"
+              />
+              <div class="work-info">
+                <div class="work-links">
+                  <a
+                    *ngIf="work.work_repo"
+                    href="{{ work.work_repo }}"
+                    target="_blank"
+                  >
+                    <i class="fa-brands fa-github"></i>
+                    <p class="link-text">Repository</p>
+                  </a>
+                  <a
+                    *ngIf="work.work_url"
+                    href="{{ work.work_url }}"
+                    target="_blank"
+                  >
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    <p class="link-text">Live Demo</p>
+                  </a>
+                </div>
+                <p class="work-year">{{ work.work_year }}</p>
+              </div>
+            </div>
+
+            <div class="work-intro">
+              <p>
+                {{
+                  languageService.selectedLanguage === "fr"
+                    ? work.work_intro
+                    : work.work_intro_en
+                }}
+              </p>
+              <p>
+                {{
+                  languageService.selectedLanguage === "fr"
+                    ? work.work_context
+                    : work.work_context_en
+                }}
+              </p>
+            </div>
+
+            <div class="work-description">
+              <p>
+                {{
+                  languageService.selectedLanguage === "fr"
+                    ? work.work_desc
+                    : work.work_desc_en
+                }}
+              </p>
+            </div>
+            <div
+              class="work-stack"
+              *ngIf="work.associatedStacks && work.associatedStacks.length"
+            >
+              <div class="stack" *ngFor="let stack of work.associatedStacks">
+                <img
+                  [src]="stack.stack_icon"
+                  alt="stack-icon"
+                  class="stack-icon"
+                />
+                <p class="stack-name">{{ stack.stack_name }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="right-box">
+            <ng-container
+              *ngFor="let image of currentWorkImages; let j = index"
+            >
+              <div
+                *ngIf="j === currentImageIndex"
+                class="image-container"
+                [@crossfade]
+              >
+                <img
+                  src="{{ image.image_url }}"
+                  alt="{{ image.image_title }}"
+                  (click)="onImageClick(image.image_url)"
+                />
+              </div>
+              <div *ngIf="j === currentImageIndex" class="image-description">
+                <p class="image-title">
+                  {{
+                    languageService.selectedLanguage === "fr"
+                      ? image.image_title
+                      : image.image_title_en
+                  }}
+                </p>
+                <div class="slide-dots">
+                  <span
+                    class="dot"
+                    *ngFor="let image of currentWorkImages; let k = index"
+                    [class.active]="k === j"
+                    (click)="onDotClick(k)"
+                  ></span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="slide-count">
+          <ng-container *ngFor="let work of works; let j = index">
+            <span
+              class="cover-container"
+              [ngClass]="{ active: j === currentWork }"
+              (click)="onWorkClick(j)"
+            >
+              <img
+                src="{{ work.work_cover }}"
+                alt="{{ work.work_name }} cover"
+              />
+            </span>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="slide-controls">
+    <p class="scroll-controls">
+      {{
+        languageService.selectedLanguage === "fr"
+          ? "Défilement auto : "
+          : "Auto scroll: "
+      }}
+      <span class="scroll-state">{{
+        autoScrollEnabled
+          ? languageService.selectedLanguage === "fr"
+            ? "activé"
+            : "enabled"
+          : languageService.selectedLanguage === "fr"
+          ? "désactivé"
+          : "disabled"
+      }}</span>
+    </p>
+    <div class="controls-icons">
+      <div class="icon">
+        <i class="fa-solid fa-backward" (click)="onPreviousClick()"></i>
+        <p>
+          {{
+            languageService.selectedLanguage === "fr" ? "Précédent" : "Previous"
+          }}
+        </p>
+      </div>
+      <div class="icon-fa-play hidden">
+        <i
+          class="fa-solid fa-play"
+          (click)="startAutoScroll()"
+          [ngClass]="{ 'bounce-animation': !autoScrollEnabled }"
+        ></i>
+        <p (click)="startAutoScroll()">
+          {{ languageService.selectedLanguage === "fr" ? "Reprendre" : "Play" }}
+        </p>
+      </div>
+      <div class="icon-fa-pause">
+        <i class="fa-solid fa-pause" (click)="stopAutoScroll()"></i>
+        <p (click)="stopAutoScroll()">Pause</p>
+      </div>
+      <div class="icon">
+        <i class="fa-solid fa-forward" (click)="onNextClick()"></i>
+        <p (click)="onNextClick()">
+          {{ languageService.selectedLanguage === "fr" ? "Suivant" : "Next" }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

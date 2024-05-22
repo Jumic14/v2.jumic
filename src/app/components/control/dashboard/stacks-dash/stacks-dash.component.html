@@ -1,0 +1,145 @@
+<div class="stack-container">
+  <h3>Stacks</h3>
+  <div class="stack-box">
+    <div class="stack-list">
+      <div class="list-container">
+        <div
+          [class.selected]="stack === selectedStack"
+          *ngFor="let stack of stacks"
+        >
+          <p (click)="selectStack(stack)">
+            Name: <span>{{ stack.stack_name }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Stack</button>
+        <button (click)="openUpdateForm()" *ngIf="selectedStack">Update</button>
+        <button
+          (click)="deleteSelectedStack(selectedStack)"
+          *ngIf="selectedStack"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="stack-info" *ngIf="selectedStack">
+      <p>
+        Stack ID: <span>{{ selectedStack.stack_id }}</span>
+      </p>
+      <p>
+        Name: <span>{{ selectedStack.stack_name }}</span>
+      </p>
+      <p>
+        Icon: <span>{{ selectedStack.stack_icon }}</span>
+      </p>
+      <p>
+        Category ID: <span>{{ selectedStack.category_id }}</span>
+      </p>
+    </div>
+    <div class="stack-post hidden">
+      <h4>Create new Stack</h4>
+      <form (submit)="submitStack()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Stack Id"
+              [(ngModel)]="newStack.stack_id"
+              name="stack_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Stack Name"
+              [(ngModel)]="newStack.stack_name"
+              name="stack_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Icon:</p>
+            <input
+              type="text"
+              placeholder="Stack Icon"
+              [(ngModel)]="newStack.stack_icon"
+              name="stack_icon"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Category ID:</p>
+            <input
+              type="text"
+              placeholder="Category ID"
+              [(ngModel)]="newStack.category_id"
+              name="category_id"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="stack-update hidden" *ngIf="selectedStack">
+      <h4>
+        Update id {{ selectedStack.stack_id }} - {{ selectedStack.stack_name }}
+      </h4>
+      <form (submit)="updateStack()">
+        <div class="form-update">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Stack Id"
+              [(ngModel)]="selectedStack.stack_id"
+              name="stack_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Stack Name"
+              [(ngModel)]="selectedStack.stack_name"
+              name="stack_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Icon:</p>
+            <input
+              type="text"
+              placeholder="Stack Icon"
+              [(ngModel)]="selectedStack.stack_icon"
+              name="stack_icon"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Category ID:</p>
+            <input
+              type="text"
+              placeholder="Category ID"
+              [(ngModel)]="selectedStack.category_id"
+              name="category_id"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Update</button>
+          <button type="button" (click)="closeUpdateForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

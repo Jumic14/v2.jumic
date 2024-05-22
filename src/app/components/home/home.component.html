@@ -1,0 +1,27 @@
+<div *ngIf="isLoading" class="loading-spinner">
+  <div class="spinner"></div>
+  <p>
+    {{
+      languageService.selectedLanguage === "fr"
+        ? "Chargement des données..."
+        : "Loading data..."
+    }}
+  </p>
+</div>
+<main *ngIf="!isLoading" class="main-content" [@animateHome]>
+  <div id="home-section" class="content-section">
+    <app-banner></app-banner>
+  </div>
+  <div id="about-section" class="content-section">
+    <app-about></app-about>
+  </div>
+  <div id="skills-section" class="content-section">
+    <app-skills></app-skills>
+  </div>
+  <div id="works-section" class="content-section">
+    <app-works></app-works>
+  </div>
+  <div id="contact-section" class="content-section">
+    <app-contact></app-contact>
+  </div>
+</main>

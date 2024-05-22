@@ -1,0 +1,69 @@
+<div class="banner">
+  <p class="banner-greetings">
+    {{
+      languageService.selectedLanguage === "fr"
+        ? "Bonjour ! Je m'appelle"
+        : "Hello! My name is"
+    }}
+  </p>
+  <div class="banner-title main-title">
+    <svg class="{{ isDarkMode() ? 'dark-mode' : '' }}">
+      <text x="0%" y="50%" dy=".35em" text-anchor="start">Julien Michel</text>
+    </svg>
+    <h1>
+      {{
+        languageService.selectedLanguage === "fr"
+          ? "Développeur MEAN Stack"
+          : "MEAN Stack Developer"
+      }}
+    </h1>
+  </div>
+  <p
+    class="banner-intro"
+    [innerHTML]="
+      languageService.selectedLanguage === 'fr'
+        ? 'Toujours à la recherche de nouvelles idées pour enrichir mes projets et élargir mes compétences, je fusionne créativité et développement depuis un an pour concevoir des applications web <strong>immersives</strong> et <strong>conviviales</strong>.'
+        : 'Always on the lookout for new ideas to boost my projects and expand my skills, I\'ve been merging creativity and development for a year now to design <strong>immersive</strong> and <strong>user-friendly</strong> web applications.'
+    "
+  ></p>
+  <div class="banner-skills" *ngIf="languageService.selectedLanguage === 'fr'">
+    <ngx-typed-writer
+      [strings]="[
+        'Développement Web : HTML',
+        'Développement Web : CSS / Sass / SCSS',
+        'Développement Web : JavaScript / TypeScript',
+        'Développement Frontend : Angular',
+        'Développement Frontend : React',
+        'Développement Backend : Node.Js',
+        'Développement Backend : Express.Js',
+        'Base de données : MySQL',
+        'Base de données : MongoDB'
+      ]"
+      [cursorChar]="'|'"
+      [smartBackspace]="true"
+      [backSpeed]="30"
+      [typeSpeed]="50"
+      [startDelay]="2000"
+    ></ngx-typed-writer>
+  </div>
+  <div class="banner-skills" *ngIf="languageService.selectedLanguage === 'en'">
+    <ngx-typed-writer
+      [strings]="[
+        'Web Development: HTML',
+        'Web Development: CSS / Sass / SCSS',
+        'Web Development: JavaScript / TypeScript',
+        'Frontend Development: Angular',
+        'Frontend Development: React',
+        'Backend Development: Node.Js',
+        'Backend Development: Express.Js',
+        'Database: MySQL',
+        'Database: MongoDB'
+      ]"
+      [cursorChar]="'|'"
+      [smartBackspace]="true"
+      [backSpeed]="30"
+      [typeSpeed]="50"
+      [startDelay]="2000"
+    ></ngx-typed-writer>
+  </div>
+</div>

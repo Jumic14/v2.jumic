@@ -1,0 +1,125 @@
+<div class="curriculum-container">
+  <h3>Curriculums</h3>
+  <div class="curriculum-box">
+    <div class="curriculum-list">
+      <div class="list-container">
+        <div
+          [class.selected]="curriculum === selectedCurriculum"
+          *ngFor="let curriculum of curriculums"
+        >
+          <p (click)="selectCurriculum(curriculum)">
+            Name: <span>{{ curriculum.curriculum_name }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Curriculum</button>
+        <button (click)="openUpdateForm()" *ngIf="selectedCurriculum">
+          Update
+        </button>
+        <button
+          (click)="deleteSelectedCurriculum(selectedCurriculum)"
+          *ngIf="selectedCurriculum"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="curriculum-info" *ngIf="selectedCurriculum">
+      <p>
+        Curriculum ID: <span>{{ selectedCurriculum.curriculum_id }}</span>
+      </p>
+      <p>
+        Name: <span>{{ selectedCurriculum.curriculum_name }}</span>
+      </p>
+      <p>
+        URL: <span>{{ selectedCurriculum.curriculum_url }}</span>
+      </p>
+    </div>
+    <div class="work-post hidden">
+      <h4>Create new Curriculum</h4>
+      <form (submit)="submitCurriculum()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Curriculum Id"
+              [(ngModel)]="newCurriculum.curriculum_id"
+              name="curriculum_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Curriculum Name"
+              [(ngModel)]="newCurriculum.curriculum_name"
+              name="curriculum_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Curriculum URL"
+              [(ngModel)]="newCurriculum.curriculum_url"
+              name="curriculum_url"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="curriculum-update hidden" *ngIf="selectedCurriculum">
+      <h4>
+        Update id {{ selectedCurriculum.curriculum_id }} -
+        {{ selectedCurriculum.curriculum_name }}
+      </h4>
+      <form (submit)="updateCurriculum()">
+        <div class="form-update">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Curriculum Id"
+              [(ngModel)]="selectedCurriculum.curriculum_id"
+              name="curriculum_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Curriculum Name"
+              [(ngModel)]="selectedCurriculum.curriculum_name"
+              name="curriculum_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Curriculum URL"
+              [(ngModel)]="selectedCurriculum.curriculum_url"
+              name="curriculum_url"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Update</button>
+          <button type="button" (click)="closeUpdateForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

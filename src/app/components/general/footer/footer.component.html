@@ -1,0 +1,47 @@
+<footer [ngClass]="{ 'light-mode': !isDarkMode, 'dark-mode': isDarkMode }">
+  <div [@animateFooter]>
+    <ul class="footer-left-bar d-none d-md-block">
+      <li>
+        <a href="https://github.com/Jumic14" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/jumic/" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    </ul>
+    <div class="footer-right-bar d-none d-md-block">
+      <a href="mailto:micheljulien1403&#64;gmail.com" target="_blank">
+        micheljulien1403&#64;gmail.com
+      </a>
+    </div>
+  </div>
+  <div class="footer-credits">
+    <p>
+      {{
+        languageService.selectedLanguage === "fr"
+          ? "Construit avec Angular par Julien Michel"
+          : "Built with Angular by Julien Michel"
+      }}
+    </p>
+    <p class="mt-2">
+      {{
+        languageService.selectedLanguage === "fr"
+          ? "Design inspiré par"
+          : "Design inspired by"
+      }}
+
+      <a href="https://github.com/bchiang7/v4" target="_blank"
+        >Brittany Chiang</a
+      >
+      &
+      <a
+        href="https://github.com/andresjosehr/andresjosehr-portfolio"
+        target="_blank"
+        >José Hernández</a
+      >
+    </p>
+  </div>
+</footer>

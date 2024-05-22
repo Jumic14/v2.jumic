@@ -1,0 +1,125 @@
+<div class="category-container">
+  <h3>Categories</h3>
+  <div class="category-box">
+    <div class="category-list">
+      <div class="list-container">
+        <div
+          [class.selected]="category === selectedCategory"
+          *ngFor="let category of categories"
+        >
+          <p (click)="selectCategory(category)">
+            Name: <span>{{ category.category_name }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Category</button>
+        <button (click)="openUpdateForm()" *ngIf="selectedCategory">
+          Update
+        </button>
+        <button
+          (click)="deleteSelectedCategory(selectedCategory)"
+          *ngIf="selectedCategory"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="category-info" *ngIf="selectedCategory">
+      <p>
+        Category ID: <span>{{ selectedCategory.category_id }}</span>
+      </p>
+      <p>
+        Name: <span>{{ selectedCategory.category_name }}</span>
+      </p>
+      <p>
+        Name EN: <span>{{ selectedCategory.category_name_en }}</span>
+      </p>
+    </div>
+    <div class="category-post hidden">
+      <h4>Create new Category</h4>
+      <form (submit)="submitCategory()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Category Id"
+              [(ngModel)]="newCategory.category_id"
+              name="category_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Category Name"
+              [(ngModel)]="newCategory.category_name"
+              name="category_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name EN:</p>
+            <input
+              type="text"
+              placeholder="Category Name EN"
+              [(ngModel)]="newCategory.category_name_en"
+              name="category_name_en"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="category-update hidden" *ngIf="selectedCategory">
+      <h4>
+        Update id {{ selectedCategory.category_id }} -
+        {{ selectedCategory.category_name }}
+      </h4>
+      <form (submit)="updateCategory()">
+        <div class="form-update">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Category Id"
+              [(ngModel)]="selectedCategory.category_id"
+              name="category_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name:</p>
+            <input
+              type="text"
+              placeholder="Category Name"
+              [(ngModel)]="selectedCategory.category_name"
+              name="category_name"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Name EN:</p>
+            <input
+              type="text"
+              placeholder="Category Name EN"
+              [(ngModel)]="selectedCategory.category_name_en"
+              name="category_name_en"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Update</button>
+          <button type="button" (click)="closeUpdateForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

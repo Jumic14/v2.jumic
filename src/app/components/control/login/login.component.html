@@ -1,0 +1,26 @@
+<div class="login-container">
+  <h2>v2.jumic - dashboard</h2>
+  <h3>Connexion</h3>
+  <form (ngSubmit)="login()" #loginForm="ngForm">
+    <input
+      type="text"
+      id="username"
+      name="name"
+      placeholder="Nom d'utilisateur"
+      autocomplete="username"
+      [(ngModel)]="name"
+      required
+    />
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Mot de passe"
+      autocomplete="current-password"
+      [(ngModel)]="password"
+      required
+    />
+    <button type="submit" [disabled]="!loginForm.form.valid">Connexion</button>
+  </form>
+  <button (click)="backToWebsite()">Retour</button>
+</div>

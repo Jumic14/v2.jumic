@@ -1,0 +1,141 @@
+footer {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  padding-top: 5em;
+  padding-bottom: 1em;
+  .footer-left-bar:after,
+  .footer-right-bar:after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0 auto;
+  }
+  .footer-left-bar li,
+  .footer-right-bar li {
+    list-style: none;
+  }
+  .footer-left-bar {
+    position: fixed;
+    bottom: -16px;
+    left: 51px;
+    padding: 0;
+    li {
+      margin: 20px 0px;
+      i {
+        font-size: 26px;
+      }
+      &:last-of-type {
+        margin-bottom: 33px;
+      }
+    }
+  }
+  .footer-right-bar {
+    position: fixed;
+    bottom: 0px;
+    right: 41px;
+    padding: 0;
+    li {
+      transform: rotate(90deg);
+    }
+    a {
+      font-family: var(--codeFont);
+      font-size: 12px;
+      -webkit-letter-spacing: 0.1em;
+      -moz-letter-spacing: 0.1em;
+      -ms-letter-spacing: 0.1em;
+      letter-spacing: 0.1em;
+      -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+      margin: 20px auto;
+      padding: 10px;
+      text-decoration: none;
+    }
+  }
+  .footer-credits {
+    font-family: var(--codeFont);
+    font-size: 10px;
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+// Responsive
+@media only screen and (min-width: 2501px) {
+  footer {
+    .footer-left-bar:after,
+    .footer-right-bar:after {
+      content: "";
+      height: 150px;
+    }
+    .footer-left-bar {
+      li {
+        i {
+          font-size: 30px;
+        }
+      }
+    }
+    .footer-right-bar {
+      a {
+        font-size: 16px;
+      }
+    }
+    .footer-credits {
+      font-size: 14px;
+    }
+  }
+}
+@media only screen and (max-width: 540px) {
+  footer {
+    .footer-left-bar:after,
+    .footer-right-bar:after {
+      content: "";
+      height: 75px;
+    }
+    .footer-left-bar {
+      left: 21px;
+      li {
+        i {
+          font-size: 22px;
+        }
+      }
+    }
+    .footer-right-bar {
+      right: 11px;
+      a {
+        font-size: 10px;
+      }
+    }
+    .footer-credits {
+      font-size: 8px;
+    }
+  }
+}
+@media only screen and (max-width: 450px) {
+  footer {
+    .footer-left-bar:after,
+    .footer-right-bar:after {
+      content: "";
+      height: 60px;
+    }
+    .footer-left-bar {
+      left: 11px;
+      li {
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+    .footer-right-bar {
+      right: 1px;
+      a {
+        font-size: 8px;
+      }
+    }
+  }
+}

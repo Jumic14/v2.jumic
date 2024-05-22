@@ -1,0 +1,142 @@
+<div class="head">
+  <div class="header-logo">
+    <img
+      [src]="getLogoSrc()"
+      alt="logo"
+      (click)="scrollToSection('home-section')"
+    />
+  </div>
+  <nav class="nav-list">
+    <a
+      (click)="scrollToSection('about-section')"
+      routerLink="about"
+      fragment="about-section"
+    >
+      <p>
+        {{ languageService.selectedLanguage === "fr" ? "À propos" : "About" }}
+      </p>
+    </a>
+
+    <a
+      (click)="scrollToSection('skills-section')"
+      routerLink="skills"
+      fragment="skills-section"
+    >
+      <p>
+        {{
+          languageService.selectedLanguage === "fr"
+            ? "Compétences"
+            : "Expertise"
+        }}
+      </p>
+    </a>
+    <a
+      (click)="scrollToSection('works-section')"
+      routerLink="works"
+      fragment="works-section"
+    >
+      <p>
+        {{
+          languageService.selectedLanguage === "fr" ? "Réalisations" : "Works"
+        }}
+      </p>
+    </a>
+    <a
+      (click)="scrollToSection('contact-section')"
+      routerLink="contact"
+      fragment="contact-section"
+    >
+      <p>
+        {{ languageService.selectedLanguage === "fr" ? "Contact" : "Contact" }}
+      </p>
+    </a>
+  </nav>
+  <div class="header-controls">
+    <div class="switch-container">
+      <label class="switch">
+        <input
+          id="switch"
+          type="checkbox"
+          [checked]="isDarkMode()"
+          (change)="toggleTheme()"
+        />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="select">
+      <select
+        id="languageHeader"
+        [(ngModel)]="languageService.selectedLanguage"
+      >
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </div>
+  </div>
+  <input id="menu-toggle" type="checkbox" />
+  <label class="menu-button-container" for="menu-toggle">
+    <div class="menu-button"></div>
+  </label>
+  <ul class="menu">
+    <li>
+      <a
+        (click)="scrollToSection('about-section')"
+        routerLink="about"
+        fragment="about-section"
+      >
+        <p>
+          {{ languageService.selectedLanguage === "fr" ? "À propos" : "About" }}
+        </p>
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="scrollToSection('works-section')"
+        routerLink="works"
+        fragment="works-section"
+      >
+        <p>
+          {{
+            languageService.selectedLanguage === "fr" ? "Réalisations" : "Works"
+          }}
+        </p>
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="scrollToSection('certifications-section')"
+        routerLink="certifications"
+        fragment="certifications-section"
+      >
+        <p>
+          {{
+            languageService.selectedLanguage === "fr"
+              ? "Certifications"
+              : "Certifications"
+          }}
+        </p>
+      </a>
+    </li>
+    <li>
+      <a
+        (click)="scrollToSection('contact-section')"
+        routerLink="contact"
+        fragment="contact-section"
+      >
+        <p>
+          {{
+            languageService.selectedLanguage === "fr" ? "Contact" : "Contact"
+          }}
+        </p>
+      </a>
+    </li>
+    <li>
+      <div class="select">
+        <select id="language" [(ngModel)]="languageService.selectedLanguage">
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </li>
+  </ul>
+</div>

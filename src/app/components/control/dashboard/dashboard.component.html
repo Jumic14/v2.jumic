@@ -1,0 +1,43 @@
+<div class="dashboard">
+  <div class="dash-top">
+    <h3 (click)="isMenuCollapsed = !isMenuCollapsed">v2.jumic - Dashboard</h3>
+    <button (click)="logout()">Déconnexion</button>
+  </div>
+  <div class="dash-menu" [ngClass]="{ collapsed: isMenuCollapsed }">
+    <div class="menu-container">
+      <div class="menu-controls"></div>
+      <div class="menu-list">
+        <p (click)="toggleCollapse('contact')">Contact</p>
+        <p (click)="toggleCollapse('works')">Works</p>
+        <p (click)="toggleCollapse('categories')">Categories</p>
+        <p (click)="toggleCollapse('stacks')">Stacks</p>
+        <p (click)="toggleCollapse('images')">Images</p>
+        <p (click)="toggleCollapse('works-stacks')">Works Stacks</p>
+        <p (click)="toggleCollapse('curriculums')">Curriculums</p>
+      </div>
+    </div>
+  </div>
+  <div class="dash-container">
+    <app-contact-dash
+      [ngClass]="{ collapsed: isContactCollapsed }"
+    ></app-contact-dash>
+    <app-works-dash
+      [ngClass]="{ collapsed: isWorksCollapsed }"
+    ></app-works-dash>
+    <app-categories-dash
+      [ngClass]="{ collapsed: isCategoriesCollapsed }"
+    ></app-categories-dash>
+    <app-stacks-dash
+      [ngClass]="{ collapsed: isStacksCollapsed }"
+    ></app-stacks-dash>
+    <app-images-dash
+      [ngClass]="{ collapsed: isImagesCollapsed }"
+    ></app-images-dash>
+    <app-works-stacks-dash
+      [ngClass]="{ collapsed: isWorksStacksCollapsed }"
+    ></app-works-stacks-dash>
+    <app-curriculums-dash
+      [ngClass]="{ collapsed: isCurriculumsCollapsed }"
+    ></app-curriculums-dash>
+  </div>
+</div>

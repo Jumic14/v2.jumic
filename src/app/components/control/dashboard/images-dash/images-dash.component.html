@@ -1,0 +1,168 @@
+<div class="image-container">
+  <h3>Images</h3>
+  <div class="image-box">
+    <div class="image-list">
+      <div class="list-container">
+        <div
+          [class.selected]="image === selectedImage"
+          *ngFor="let image of images"
+        >
+          <p (click)="selectImage(image)">
+            Name: <span>{{ image.image_title }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="list-button">
+        <button (click)="openSubmitForm()">New Image</button>
+        <button (click)="openUpdateForm()" *ngIf="selectedImage">Update</button>
+        <button
+          (click)="deleteSelectedImage(selectedImage)"
+          *ngIf="selectedImage"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+    <div class="image-info" *ngIf="selectedImage">
+      <p>
+        Image ID: <span>{{ selectedImage.image_id }}</span>
+      </p>
+      <p>
+        Title: <span>{{ selectedImage.image_title }}</span>
+      </p>
+      <p>
+        Title EN: <span>{{ selectedImage.image_title_en }}</span>
+      </p>
+      <p>
+        URL: <span>{{ selectedImage.image_url }}</span>
+      </p>
+      <p>
+        Work ID: <span>{{ selectedImage.work_id }}</span>
+      </p>
+    </div>
+    <div class="image-post hidden">
+      <h4>Create new Image</h4>
+      <form (submit)="submitImage()">
+        <div class="form-post">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Image Id"
+              [(ngModel)]="newImage.image_id"
+              name="image_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Title:</p>
+            <input
+              type="text"
+              placeholder="Image Title"
+              [(ngModel)]="newImage.image_title"
+              name="image_title"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Title EN:</p>
+            <input
+              type="text"
+              placeholder="Image Title En"
+              [(ngModel)]="newImage.image_title_en"
+              name="image_title_en"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Image URL"
+              [(ngModel)]="newImage.image_url"
+              name="image_url"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Work ID:</p>
+            <input
+              type="text"
+              placeholder="Work ID"
+              [(ngModel)]="newImage.work_id"
+              name="work_id"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Post</button>
+          <button type="button" (click)="closeSubmitForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+    <div class="image-update hidden" *ngIf="selectedImage">
+      <h4>
+        Update id {{ selectedImage.image_id }} - {{ selectedImage.image_title }}
+      </h4>
+      <form (submit)="updateImage()">
+        <div class="form-update">
+          <div class="form-entry">
+            <p>ID:</p>
+            <input
+              type="number"
+              placeholder="Image Id"
+              [(ngModel)]="selectedImage.image_id"
+              name="image_id"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Title:</p>
+            <input
+              type="text"
+              placeholder="Image Title"
+              [(ngModel)]="selectedImage.image_title"
+              name="image_title"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Title EN:</p>
+            <input
+              type="text"
+              placeholder="Image Title EN"
+              [(ngModel)]="selectedImage.image_title_en"
+              name="image_title_en"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>URL:</p>
+            <input
+              type="text"
+              placeholder="Image URL"
+              [(ngModel)]="selectedImage.image_url"
+              name="image_url"
+              required
+            />
+          </div>
+          <div class="form-entry">
+            <p>Work ID:</p>
+            <input
+              type="text"
+              placeholder="Work ID"
+              [(ngModel)]="selectedImage.work_id"
+              name="work_id"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-button">
+          <button type="submit">Update</button>
+          <button type="button" (click)="closeUpdateForm()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
